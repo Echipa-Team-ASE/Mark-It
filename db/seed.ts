@@ -1,5 +1,6 @@
-import { createUser } from "@/lib/user";
+import { createUser, getUserByEmail, updateUser } from "@/lib/user";
 import { CreateCredentialsUserDto } from "./schema/user";
+import { createTask } from "@/lib/tesk";
 
 const demoUser: CreateCredentialsUserDto[] = [
   {
@@ -18,17 +19,41 @@ const demoUser: CreateCredentialsUserDto[] = [
     email: "tudor_bratu@gmail.com",
     password: "Testtest123",
     name: "Tudor Bratu",
-    managerId: "1",
   },
 ];
 
 async function seedDatabase() {
-  console.log("🧑🏻‍💻 Starting seed...");
+  console.log("🌱 Starting seed...");
 
   for (const user of demoUser) {
     await createUser(user);
   }
 
+  const employee = await getUserByEmail("tudor_bratu@gmail.com").then((user) => user).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  const manager = await getUserByEmail("matei_visoiu@gmail.com").then((user) => user).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  if (!employee || !manager) {
+    console.error("Couldn't find employee or manager");
+    process.exit(1);
+  }
+  await updateUser(employee.id, {
+    managerId: manager.id,
+  });
+
+  await createTask({
+    title: "Task 1",
+    description: "Description 1",
+    userId: employee.id,
+    managerId: manager.id,
+  });
+  
   console.log("👋 Bye!");
 
   process.exit(0);

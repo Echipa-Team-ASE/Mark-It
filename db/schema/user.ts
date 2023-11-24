@@ -16,5 +16,6 @@ export type CreateCredentialsUserDto = {
   password: string;
   name?: string;
   role?: 'admin' | 'user' | 'manager';
+  createdAt?: string;
   managerId?: string;
 };
