@@ -1,6 +1,6 @@
 import { createUser, getUserByEmail, updateUser } from "@/lib/user";
 import { CreateCredentialsUserDto } from "./schema/user";
-import { createTask } from "@/lib/tesk";
+import { createTask } from "@/lib/task";
 
 const demoUser: CreateCredentialsUserDto[] = [
   {

@@ -9,40 +9,35 @@ export const {
   auth,
 } = NextAuth({
   adapter: DrizzleAdapter(db),
+  secret: process.env.SECRET,
   session: {
     strategy: "jwt",
+    // maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: {
-          label: "Email",
-          type: "text",
-          placeholder: "jsmith",
-        },
-        password: {
-          label: "Password",
-          type: "password",
-        },
+        email: { label: "Email", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
       },
       authorize: authorizeUser,
     }),
   ],
+  callbacks: {
+    // jwt({ token, user }) {
+    //   if (user) {
+    //     token.role = user.role;
+    //   }
+    //   return token;
+    // },
+    // session({ session, token }) {
+    //   if (token) session.user.role = token.role as "admin" | "user" | "manager";
+    //   return session;
+    // },
+  },
   pages: {
     signIn: "/login",
     error: "/login",
-  },
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-      }
-      return token;
-    },
-    session({ session, user }) {
-      session.user.role = user.role;
-      return session;
-    },
   },
 });
