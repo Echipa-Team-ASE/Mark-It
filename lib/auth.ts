@@ -38,6 +38,6 @@ export const authorizeUser: CredentialsConfig["authorize"] = async (
     id: user.id,
     email: user.email,
     name: user.name,
-    // role: user.role as "admin" | "user" | "manager",
+    role: user.role as "admin" | "user" | "manager",
   };
 };

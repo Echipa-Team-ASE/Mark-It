@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Fragment } from 'react';
-import Logo from '@/public/logo.svg';
+// import Logo from '@/public/logo.svg';
 import userAvatar from '@/public/user-circle.svg';
 import Image from 'next/image';
 import Button from './Button';
@@ -24,14 +24,14 @@ export default function Navbar() {
     <nav>
       <div className="hidden md:flex flex-row mx-auto max-w-7xl">
         <div className="flex flex-row items-center justify-between p-6 bg-white">
-          <Image
+          {/* <Image
             src={Logo}
             alt="Logo"
             width={80}
             height={79}
             className="hover:cursor-pointer h-20"
             onClick={() => (window.location.href = '/')}
-          />
+          /> */}
 
           <Button
             variant="custom"
@@ -53,7 +53,7 @@ export default function Navbar() {
               />
             </svg>
             &nbsp;
-            <p className="hover:underline underline-offset-4 peer-hover:underline font-serif">My products</p>
+            <p className="hover:underline underline-offset-4 peer-hover:underline">My products</p>
           </Button>
         </div>
         <div className="flex flex-row flex-grow items-center justify-end p-6 bg-white">
@@ -140,14 +140,14 @@ export default function Navbar() {
         {({ open }) => (
           <>
             <div className="flex justify-between w-full items-center">
-              <Image
+              {/* <Image
                 src={Logo}
                 alt="Logo"
                 width={80}
                 height={79}
                 className="hover:cursor-pointer h-14"
                 onClick={() => (window.location.href = '/')}
-              />
+              /> */}
               <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 transition-all duration-200">
                 {open ? (
                   <svg

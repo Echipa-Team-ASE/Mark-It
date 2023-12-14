@@ -12,7 +12,7 @@ export const {
   secret: process.env.SECRET,
   session: {
     strategy: "jwt",
-    // maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   providers: [
     CredentialsProvider({
@@ -25,19 +25,20 @@ export const {
     }),
   ],
   callbacks: {
-    // jwt({ token, user }) {
-    //   if (user) {
-    //     token.role = user.role;
-    //   }
-    //   return token;
-    // },
-    // session({ session, token }) {
-    //   if (token) session.user.role = token.role as "admin" | "user" | "manager";
-    //   return session;
-    // },
+    jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      if (token) session.user.role = token.role as "admin" | "user" | "manager";
+      return session;
+    },
   },
   pages: {
     signIn: "/login",
     error: "/login",
+    signOut: "/login",
   },
 });
