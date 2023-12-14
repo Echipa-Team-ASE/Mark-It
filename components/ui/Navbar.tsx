@@ -57,25 +57,6 @@ export default function Navbar() {
           </Button>
         </div>
         <div className="flex flex-row flex-grow items-center justify-end p-6 bg-white">
-          <Button variant="custom" className="border-none ml-5 flex px-0 mx-4 cursor-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 peer"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-              />
-            </svg>
-            &nbsp;
-            <Link className="hover:underline underline-offset-4 peer-hover:underline font-serif" href="https://irisphera.com">Contact</Link>
-          </Button>
           <Button
             variant="custom"
             className="m-4 bg-gradient-to-r from-iris-dark-blue to-iris-pink text-white hover:opacity-80 border-0"

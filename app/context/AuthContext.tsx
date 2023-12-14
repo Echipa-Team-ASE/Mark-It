@@ -1,7 +1,6 @@
 "use client";
 import { Session } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { createContext, useContext } from "react";
 
