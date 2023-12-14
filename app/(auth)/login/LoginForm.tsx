@@ -37,41 +37,36 @@ export default function LoginForm() {
   } = form;
 
   const onSubmit = form.handleSubmit(async (data: any) => {
-    console.log(data);
-    try {
-      const response = await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-        redirect: false,
-      }).catch((error) => {
-        console.error("Error signing in2:", error);
-        // Handle error state if necessary
+    await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    }).then((response) => {
+      const error = response?.error;
+
+      if (error) {
+        form.setError("root.serverError", {
+          type: "serverError",
+          message: "Email sau parola gresita",
+        });
+      } else {
+        router.push("/");
       }
-      ).then((response) => {
-        console.log(response);
-        if (response?.ok) {
-          router.push("/");
-        }
-      }
-      );
-    } catch (error) {
-      console.error("Error signing in:", error);
-      // Handle error state if necessary
-    }
+    });
   });
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-cover bg-center">
       <div className="max-w-lg bg-white px-8 py-10 sm:px-16 sm:rounded-md">
         <div className="flex flex-row items-center gap-3 justify-center">
-          <h1 className="text-xl md:text-3xl font-medium">Mark It - Login</h1>
+          <h1 className="text-xl md:text-3xl font-medium">Mark It</h1>
         </div>
         <p className="mt-7 mb-5 text-2xl">Sign in</p>
         <Form className="my-5" onSubmit={onSubmit}>
           <div>
             <label className="block text-md text-gray-500">
               {" "}
-              Email address{" "}
+              Adresa de email{" "}
             </label>
             <Field
               type="email"
@@ -82,7 +77,7 @@ export default function LoginForm() {
             {errors.email && <Error message={errors.email.message as string} />}
           </div>
           <div className="mt-6">
-            <label className="block text-md text-gray-500"> Password </label>
+            <label className="block text-md text-gray-500"> Parola </label>
             <div className="relative mt-1 rounded-md shadow-sm">
               <Field
                 type={showPass ? "text" : "password"}
@@ -154,10 +149,10 @@ export default function LoginForm() {
             href="/forgot-password"
             className="text-blue-500 hover:underline underline-offset-4"
           >
-            Forgot your password?
+            Parola uitata?
           </Link>
           <p className="text-gray-500">
-            Don&apos;t have an account?{" "}
+            Nu ai inca un cont?{" "}
             <Link
               href="/signup"
               className="text-blue-500 hover:underline underline-offset-4"
