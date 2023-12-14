@@ -11,7 +11,7 @@ export default async function LoginPage() {
     // }
 
     return (
-        <main className="">
+        <main className="min-h-screen">
             <LoginForm />
         </main>
     );

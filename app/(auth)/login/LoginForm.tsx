@@ -57,7 +57,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-cover bg-center">
-      <div className="max-w-lg bg-white px-8 py-10 sm:px-16 sm:rounded-md">
+      <div className="max-w-lg bg-white px-8 py-10 sm:px-16 sm:rounded-md grow">
         <div className="flex flex-row items-center gap-3 justify-center">
           <h1 className="text-xl md:text-3xl font-medium">Mark It</h1>
         </div>
@@ -145,12 +145,12 @@ export default function LoginForm() {
           </div>
         </Form>
         <div className="flex flex-row gap-4 flex-wrap items-center text-sm py-4">
-          <Link
+          {/* <Link
             href="/forgot-password"
             className="text-blue-500 hover:underline underline-offset-4"
           >
             Parola uitata?
-          </Link>
+          </Link> */}
           <p className="text-gray-500">
             Nu ai inca un cont?{" "}
             <Link
