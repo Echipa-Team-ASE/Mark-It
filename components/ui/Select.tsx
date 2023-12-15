@@ -42,7 +42,7 @@ export default function Select({
                             'relative w-full cursor-default text-left',
                             'py-2 px-4 rounded-md transition-all',
                             'bg-white font-medium',
-                            'focus:outline-none focus:ring-2 focus:ring-iris-sapphire-blue',
+                            'focus:outline-none focus:ring-2 focus:ring-markit-sapphire-blue',
                             'border-2 border-gray-200',
                         )}
                     >
@@ -66,7 +66,7 @@ export default function Select({
                                     key={option.label}
                                     className={({ active }) =>
                                         clsx(
-                                            active ? 'text-iris-sapphire-blue bg-iris-sapphire-blue bg-opacity-10' : '',
+                                            active ? 'text-markit-sapphire-blue bg-markit-sapphire-blue bg-opacity-10' : '',
                                             option.disabled ? 'text-gray-400' : '',
                                             'relative cursor-default select-none py-2 pl-10 pr-4 transition-all'
                                         )

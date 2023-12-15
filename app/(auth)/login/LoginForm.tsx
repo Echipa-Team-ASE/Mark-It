@@ -1,8 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { FormProvider, useForm } from "react-hook-form";
-import Image from "next/image";
+import { useForm } from "react-hook-form";
 import Link from "next/link";
 
 import Button from "@/components/ui/Button";
@@ -13,19 +12,11 @@ import Form from "@/components/ui/Form";
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Te rugăm să introduci o adresă validă de email.")
-    .email("Emailul introdus nu este o adresă validă."),
-  password: z.string().min(1, "Te rugăm să îți introduci parola."),
-});
+import { loginSchema } from "@/validation/user";
 
 export default function LoginForm() {
   const router = useRouter();
   const [showPass, setShowPass] = useState(false);
-  // const callbackUrl = "/";
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),

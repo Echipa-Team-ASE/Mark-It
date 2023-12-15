@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "iris-dark-blue": "#01056F",
-        "iris-blue": "#1D2AB8",
-        "iris-light-blue": "#7385DD",
-        "iris-sapphire-blue": "#4154E5",
-        "iris-pink": "#D955E6",
+        "markit-dark-blue": "#facc15",
+        "markit-blue": "#ca8a04",
+        "markit-light-blue": "#7385DD",
+        "markit-sapphire-blue": "#4154E5",
+        "markit-pink": "#2dd4bf",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

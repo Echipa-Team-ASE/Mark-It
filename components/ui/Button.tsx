@@ -38,32 +38,32 @@ export default function Button({ children,
             }
         },
         sapphire: {
-            bg: "bg-iris-sapphire-blue",
-            border: "border-iris-sapphire-blue",
+            bg: "bg-markit-sapphire-blue",
+            border: "border-markit-sapphire-blue",
             text: "text-white",
             hover: {
                 bg: "hover:bg-transparent",
-                border: "hover:border-iris-sapphire-blue",
-                text: "hover:text-iris-sapphire-blue",
+                border: "hover:border-markit-sapphire-blue",
+                text: "hover:text-markit-sapphire-blue",
             }
         },
         pink: {
-            bg: "bg-iris-pink",
-            border: "border-iris-pink",
+            bg: "bg-markit-pink",
+            border: "border-markit-pink",
             text: "text-white",
             hover: {
-                bg: "hover:bg-iris-light-blue",
-                border: "hover:border-iris-pink",
+                bg: "hover:bg-markit-light-blue",
+                border: "hover:border-markit-pink",
                 text: "hover:text-white",
             }
         },
         darkBlue: {
-            bg: "bg-iris-dark-blue",
-            border: "border-iris-dark-blue",
+            bg: "bg-markit-dark-blue",
+            border: "border-markit-dark-blue",
             text: "text-white",
             hover: {
-                bg: "hover:bg-iris-blue",
-                border: "hover:border-iris-dark-blue",
+                bg: "hover:bg-markit-blue",
+                border: "hover:border-markit-dark-blue",
                 text: "hover:text-white",
             }
         },

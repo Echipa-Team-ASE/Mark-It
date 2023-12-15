@@ -114,7 +114,7 @@ export default function DragAndDrop(
 
     //                     {...(file ? { className: clsx(`dropzone p-1 w-full`) } : getRootProps({ className: clsx(`dropzone p-1 w-full`) }))}
     //                 >
-    //                     <div className={clsx(isDragActive ? "bg-gray-100" : "bg-white", "group h-[200px] w-full flex flex-col items-center flex-1 justify-center transition-all duration-200 hover:bg-gray-100 border-2 rounded-lg", error ? "border-red-500" : "border-iris-sapphire-blue border-dashed")} >
+    //                     <div className={clsx(isDragActive ? "bg-gray-100" : "bg-white", "group h-[200px] w-full flex flex-col items-center flex-1 justify-center transition-all duration-200 hover:bg-gray-100 border-2 rounded-lg", error ? "border-red-500" : "border-markit-sapphire-blue border-dashed")} >
     //                         <input {...getInputProps()} />
     //                         {file ? (
     //                             <>
@@ -122,7 +122,7 @@ export default function DragAndDrop(
     //                                     <>
     //                                         <Image className={`object-contain max-h-full max-w-full transition-all duration-200 m-0 bg-white justify-items-stretch`} alt={`Campaign photo`} src={URL.createObjectURL(file)} width={600} height={200} />
     //                                         <div className={`flex absolute opacity-0 transition-all duration-200 flex-row items-center space-x-2 group-hover:opacity-100`}>
-    //                                             <span className={`h-[30px] aspect-square rounded-full bg-primary flex items-center justify-center bg-iris-sapphire-blue text-white`} onClick={() => setLightbox({ show: true, imageSrc: URL.createObjectURL(file) })} >
+    //                                             <span className={`h-[30px] aspect-square rounded-full bg-primary flex items-center justify-center bg-markit-sapphire-blue text-white`} onClick={() => setLightbox({ show: true, imageSrc: URL.createObjectURL(file) })} >
     //                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
     //                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
     //                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -162,11 +162,11 @@ export default function DragAndDrop(
     //                         ) : (
     //                             <div className={`flex items-center justify-center text-center flex-col`}>
     //                                 <span className={`h-[30px] aspect-square rounded-full bg-primary flex items-center justify-center`}>
-    //                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-iris-sapphire-blue">
+    //                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-markit-sapphire-blue">
     //                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
     //                                     </svg>
     //                                 </span>
-    //                                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Drag & drop or <span className="font-medium text-iris-sapphire-blue hover:underline cursor-pointer underline-offset-2"> browse </span></p>
+    //                                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Drag & drop or <span className="font-medium text-markit-sapphire-blue hover:underline cursor-pointer underline-offset-2"> browse </span></p>
     //                             </div>
     //                         )}
 

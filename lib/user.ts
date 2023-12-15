@@ -22,6 +22,26 @@ export async function getUserByEmail(email: string): Promise<User | null> {
   return asd;
 }
 
+
+export async function getAllUsers() {
+  const queryResult = await db
+    .select()
+    .from(user);
+
+  const [asd] = queryResult;
+  return asd;
+}
+
+export async function getAllManagers() {
+  const queryResult = await db
+    .select()
+    .from(user)
+    .where(eq(user.role, "manager"))
+
+  // const [asd] = queryResult;
+  return queryResult;
+}
+
 export async function getAllUsersByManagerId(managerId: string) {
   const queryResult = await db
     .select()

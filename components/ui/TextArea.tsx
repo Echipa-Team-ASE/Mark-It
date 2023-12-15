@@ -28,7 +28,7 @@ export default function TextArea({
                     'block w-full h-full',
                     'py-3 px-4 rounded-md transition-all',
                     'bg-white font-medium  ',
-                    'focus:outline-none focus:ring-2 focus:ring-iris-sapphire-blue',
+                    'focus:outline-none focus:ring-2 focus:ring-markit-sapphire-blue',
                     'border-2',
                     'disabled:bg-gray-100',
                     error ? 'border-red-500' : 'border-gray-200',
