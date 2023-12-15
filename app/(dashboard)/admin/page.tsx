@@ -5,7 +5,7 @@ export default async function AdminDashboard() {
   const managers = await getAllManagers();
 
   return (
-    <div className="flex min-h-screen flex-col max-w-7xl pt-16 mx-auto">
+    <div className="flex min-h-screen flex-col max-w-7xl pt-16 mx-auto p-4">
       <div>
         <AddUserPopup
           managers={managers.map((manager) => {

@@ -32,8 +32,6 @@ export const authorizeUser: CredentialsConfig["authorize"] = async (
     return null;
   }
 
-  console.log("user", user);
-
   return {
     id: user.id,
     email: user.email,

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { Fragment } from "react";
-import Logo from "@/public/logo.svg";
-import userAvatar from "@/public/user-circle.svg";
-import Image from "next/image";
-import Button from "./Button";
-import Link from "next/link";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import React, { Fragment } from 'react';
+import Logo from '@/public/logo.svg';
+import userAvatar from '@/public/user-circle.svg';
+import Image from 'next/image';
+import Button from './Button';
+import Link from 'next/link';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import clsx from 'clsx';
+import { usePathname, useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function Navbar() {
   const router = useRouter();
@@ -19,43 +19,31 @@ export default function Navbar() {
   const user = session?.data?.user;
 
   const navigation = [
-    { name: "My products", href: "/", current: pathname === "/" },
+    { name: 'My tasks', href: '/', current: pathname === '/' },
     {
-      name: "Add new product",
-      href: "/products/add",
-      current: pathname === "/products/add",
+      name: 'Add new task',
+      href: '/task/add',
+      current: pathname === '/products/add',
     },
     {
-      name: "Contact",
-      href: "https://markitphera.com",
-      current: pathname === "/contact",
+      name: 'Manage users',
+      href: '/manage-users',
+      current: pathname === '/manage-users',
     },
-    { name: "Log Out", href: "/logout", current: pathname === "/logout" },
+    { name: 'Admin', href: '/admin', current: pathname === '/admin' },
+    { name: 'Log Out', href: '/logout', current: pathname === '/logout' },
   ];
 
   return (
     <nav className="shadow-lg sticky top-0 right-0">
       <div className="hidden md:flex flex-row mx-auto max-w-7xl">
         <div className="flex flex-row items-center justify-between bg-white gap-4">
-          <label
-            className="flex flex-row items-center gap-1 hover:cursor-pointer"
-            onClick={() => router.push("/")}
-          >
-            <Image
-              src={Logo}
-              alt="Logo"
-              width={40}
-              height={40}
-              className="h-20"
-            />
+          <label className="flex flex-row items-center gap-1 hover:cursor-pointer" onClick={() => router.push('/')}>
+            <Image src={Logo} alt="Logo" width={40} height={40} className="h-20" />
             <p>Mark it</p>
           </label>
 
-          <Button
-            variant="custom"
-            className="border-none flex items-center px-0 peer"
-            onClick={() => router.push("/")}
-          >
+          <Button variant="custom" className="border-none flex items-center px-0 peer" onClick={() => router.push('/')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,16 +59,14 @@ export default function Navbar() {
               />
             </svg>
             &nbsp;
-            <p className="hover:underline underline-offset-4 peer-hover:underline">
-              My tasks
-            </p>
+            <p className="hover:underline underline-offset-4 peer-hover:underline">My tasks</p>
           </Button>
-          {user?.role === "manager" ||
-            (user?.role === "admin" && (
+          {user?.role === 'manager' ||
+            (user?.role === 'admin' && (
               <Button
                 variant="custom"
                 className="border-none flex items-center px-0 peer"
-                onClick={() => router.push("/manage-users")}
+                onClick={() => router.push('/manage-users')}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,16 +83,14 @@ export default function Navbar() {
                   />
                 </svg>
                 &nbsp;
-                <p className="hover:underline underline-offset-4 peer-hover:underline">
-                  Manage users
-                </p>
+                <p className="hover:underline underline-offset-4 peer-hover:underline">Manage users</p>
               </Button>
             ))}
-          {user?.role === "admin" && (
+          {user?.role === 'admin' && (
             <Button
               variant="custom"
               className="border-none flex items-center px-0 peer"
-              onClick={() => router.push("/admin")}
+              onClick={() => router.push('/admin')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +107,7 @@ export default function Navbar() {
                 />
               </svg>
               &nbsp;
-              <p className="hover:underline underline-offset-4 peer-hover:underline">
-                Admin
-              </p>
+              <p className="hover:underline underline-offset-4 peer-hover:underline">Admin</p>
             </Button>
           )}
         </div>
@@ -133,7 +115,7 @@ export default function Navbar() {
           <Button
             variant="custom"
             className="m-4 bg-gradient-to-r from-markit-dark-blue to-markit-pink text-white hover:opacity-80 border-0"
-            onClick={() => (window.location.href = "/products/add")}
+            onClick={() => (window.location.href = '/products/add')}
           >
             + Add a new task
           </Button>
@@ -165,8 +147,8 @@ export default function Navbar() {
                     {({ active }) => (
                       <Link
                         className={clsx(
-                          "group flex w-full items-center rounded-md px-2 py-2 text-sm",
-                          "hover:bg-gray-200"
+                          'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                          'hover:bg-gray-200'
                         )}
                         href="/logout"
                       >
@@ -213,21 +195,18 @@ export default function Navbar() {
           </Menu>
         </div>
       </div>
-      <Disclosure
-        as="div"
-        className="p-2 border-b-[1px] flex flex-col justify-between md:hidden"
-      >
+      <Disclosure as="div" className="p-2 border-b-[1px] flex flex-col justify-between md:hidden">
         {({ open }) => (
           <>
             <div className="flex justify-between w-full items-center">
-              {/* <Image
+              <Image
                 src={Logo}
                 alt="Logo"
-                width={80}
-                height={79}
+                width={40}
+                height={40}
                 className="hover:cursor-pointer h-14"
                 onClick={() => (window.location.href = '/')}
-              /> */}
+              />
               <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 transition-all duration-200">
                 {open ? (
                   <svg
@@ -238,11 +217,7 @@ export default function Navbar() {
                     stroke="currentColor"
                     className="w-6 h-6"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 ) : (
                   <svg
@@ -279,11 +254,11 @@ export default function Navbar() {
                       href={item.href}
                       className={clsx(
                         item.current
-                          ? "bg-markit-dark-blue text-white"
-                          : "text-black hover:bg-markit-light-blue hover:text-white",
-                        "block rounded-md px-3 py-2 text-base font-medium"
+                          ? 'bg-markit-dark-blue text-white'
+                          : 'text-black hover:bg-markit-light-blue hover:text-white',
+                        'block rounded-md px-3 py-2 text-base font-medium'
                       )}
-                      aria-current={item.current ? "page" : undefined}
+                      aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
                     </Disclosure.Button>

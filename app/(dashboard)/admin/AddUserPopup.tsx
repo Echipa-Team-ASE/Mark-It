@@ -7,14 +7,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Field from '@/components/ui/Field';
 import { z } from 'zod';
-import Select from '@/components/ui/Select';
 import SelectField from '@/components/ui/SelectField';
 import { insertUserSchema } from '@/validation/user';
-import { User } from '@/db/schema/user';
+import Error from '@/components/ui/Error';
 
 export interface ManagerOption {
-    name: string;
-    id: string;
+  name: string;
+  id: string;
 }
 
 export default function AddUserPopup({ managers }: { managers: ManagerOption[] }) {
@@ -24,8 +23,6 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
       role: 'user',
     },
   });
-
-  console.log(managers);
 
   const role = form.watch('role');
 
@@ -74,7 +71,18 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
   const onSubmit = form.handleSubmit(async (data: any) => {
     console.log(data);
 
-    // form.reset();
+    fetch('/api/user', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        console.log(res);
+        form.reset();
+        closeModal();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 
   return (
@@ -107,17 +115,27 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="flex flex-col w-full max-w-xl transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative flex flex-col w-full max-w-xl transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <button className="fixed top-0 right-0 p-4 z-40" onClick={closeModal}>
+                    <svg
+                      className="w-6 h-6 text-gray-500 hover:text-gray-700 transition-all duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                   <Form className="mt-4" onSubmit={onSubmit}>
                     <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                       Create a new user
                     </Dialog.Title>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">You can create a new user by filling out the form below.</p>
-                      <div className="flex flex-row gap-3">
+                    <div className="mt-4">
+                      <div className="grid grid-cols-2 gap-3">
                         <div>
                           <label className="block text-md text-gray-500"> Full name</label>
                           <Field type="text" className="mt-1" register={register} name="name" />
+                          {errors.name && <Error message={errors.name.message as string} />}
                         </div>
                         <div className="flex grow flex-col">
                           <label className="block text-md text-gray-500"> Full name</label>
@@ -143,7 +161,7 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
                       </div>
                     </div>
                     {role === 'user' && (
-                      <div>
+                      <div className='mt-2'>
                         <label className="block text-md text-gray-500">Manager</label>
                         <SelectField
                           className="mt-1 z-40"
@@ -152,7 +170,7 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
                             value: manager.id,
                           }))}
                           control={form.control}
-                          name="manager"
+                          name="managerId"
                         />
                       </div>
                     )}
@@ -160,7 +178,6 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
                       <button
                         type="submit"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        // onClick={closeModal}
                       >
                         Create User
                       </button>
