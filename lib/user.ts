@@ -31,6 +31,16 @@ export async function getAllUsers() {
   return queryResult;
 }
 
+export async function getUserById(id: string) {
+  const queryResult = await db
+    .select()
+    .from(user)
+    .where(eq(user.id, id));
+
+  const [asd] = queryResult;
+  return asd;
+}
+
 export async function getAllManagers() {
   const queryResult = await db
     .select()

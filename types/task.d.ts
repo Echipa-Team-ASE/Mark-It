@@ -1,7 +1,8 @@
 export interface TaskDetails {
+    id: string;
     title: string;
     description: string;
-    status: string;
+    status: 'open' | 'pending' | 'completed' | 'closed';
     user: string;
     manager: string;
-}
+  }
