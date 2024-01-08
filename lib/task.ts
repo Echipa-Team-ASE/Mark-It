@@ -12,3 +12,11 @@ export async function createTask(taskData: CreateTaskDto) {
     
     return newTask;
 }
+
+export async function getAllTasks() {
+    const tasks = await db
+        .select()
+        .from(task);
+
+    return tasks;
+}

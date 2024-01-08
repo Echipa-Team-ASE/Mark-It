@@ -19,7 +19,7 @@ export default function Navbar() {
   const user = session?.data?.user;
 
   const navigation = [
-    { name: 'My tasks', href: '/', current: pathname === '/' },
+    { name: user?.role==='user' ? 'My tasks' : 'View Tasks', href: '/', current: pathname === '/' },
     {
       name: 'Add new task',
       href: '/task/add',
@@ -59,7 +59,7 @@ export default function Navbar() {
               />
             </svg>
             &nbsp;
-            <p className="hover:underline underline-offset-4 peer-hover:underline">My tasks</p>
+            <p className="hover:underline underline-offset-4 peer-hover:underline">{user?.role==='user' ? 'My tasks' : 'View Tasks'}</p>
           </Button>
           {user?.role === 'manager' ||
             (user?.role === 'admin' && (

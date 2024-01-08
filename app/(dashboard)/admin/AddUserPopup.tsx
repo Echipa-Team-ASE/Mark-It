@@ -26,33 +26,6 @@ export default function AddUserPopup({ managers }: { managers: ManagerOption[] }
 
   const role = form.watch('role');
 
-  const dummyManagers = [
-    {
-      name: 'John Doe',
-      id: '1',
-    },
-    {
-      name: 'Jane Moe',
-      id: '2',
-    },
-    {
-      name: 'John Doe',
-      id: '3',
-    },
-    {
-      name: 'Jane Moe',
-      id: '4',
-    },
-    {
-      name: 'John Doe',
-      id: '5',
-    },
-    {
-      name: 'Jane Moe',
-      id: '6',
-    },
-  ];
-
   const {
     register,
     formState: { errors },
