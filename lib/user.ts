@@ -28,8 +28,7 @@ export async function getAllUsers() {
     .select()
     .from(user);
 
-  const [asd] = queryResult;
-  return asd;
+  return queryResult;
 }
 
 export async function getAllManagers() {
@@ -38,7 +37,6 @@ export async function getAllManagers() {
     .from(user)
     .where(eq(user.role, "manager"))
 
-  // const [asd] = queryResult;
   return queryResult;
 }
 
