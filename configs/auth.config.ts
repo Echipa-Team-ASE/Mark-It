@@ -28,11 +28,15 @@ export const {
     jwt({ token, user }) {
       if (user) {
         token.role = user.role;
+        token.id = user.id;
       }
       return token;
     },
     session({ session, token }) {
-      if (token) session.user.role = token.role as "admin" | "user" | "manager";
+      if (token) {
+        session.user.role = token.role as "admin" | "user" | "manager";
+        session.user.id = token.id as string;
+      }
       return session;
     },
   },
