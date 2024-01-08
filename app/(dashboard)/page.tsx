@@ -8,7 +8,6 @@ export default async function Home() {
   const user = session?.user;
   const users = await getAllUsers();
   const managers  = await getAllManagers();
-  console.log(user);
   const tasks = user?.role === 'user' ? await getTasksByUserId(user?.id as string) : await getAllTasks();
 
   console.log(tasks);
