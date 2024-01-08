@@ -58,7 +58,7 @@ docker run -d --name my-postgres-container -p 5432:5432 my-postgres-image
 To generate the database schema, run the following command:
 
 ```bash
-npm run db:migrate
+npm run db:generate
 ```
 
 To migrate the database schema, run the following command:
